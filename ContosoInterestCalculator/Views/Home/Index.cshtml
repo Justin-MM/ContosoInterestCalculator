@@ -1,0 +1,34 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@using Microsoft.AspNetCore.Identity
+
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+
+
+
+
+
+
+    <div class="row" style=" position: relative; margin: 15% 25%;
+  width: 50%;
+  height: auto;
+  border: 3px solid green;
+  padding: 70px 10px;
+  text-align: center">
+        
+            <p>
+                Calculate Your Simple Interest. Anytime Anywhere.
+
+
+            </p>
+            <a class="btn btn-default" href="/Home/InterestCalculator">
+                Calculate
+            </a>
+
+        
+        </div>
+   
+

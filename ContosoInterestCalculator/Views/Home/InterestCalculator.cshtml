@@ -1,0 +1,74 @@
+﻿@model ContosoInterestCalculator.Controllers.InterestFormValues
+
+@{
+    ViewData["Title"] = "Contoso Corp. Interest Calculator";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+<h2>InterestCalculator</h2>
+
+<h4>InterestFormValues</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form action="InterestCalculator" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Principle" class="control-label"></label>
+                <input asp-for="Principle" class="form-control" />
+                <span asp-validation-for="Principle" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="rate" class="control-label"></label>
+                <input asp-for="rate" class="form-control" />
+                <span asp-validation-for="rate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Time" class="control-label"></label>
+                <input asp-for="Time" class="form-control" />
+                <span asp-validation-for="Time" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Calculate" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+    <div class="col-md-8">
+        <div class="row" style=" position: relative; margin: auto;
+  width: 50%;
+  height: auto;
+  border: 3px solid green;
+  padding: 70px 10px;
+  text-align: center">
+            <a asp-action="YourHistory">See Your Calculations History</a>
+        </div>
+
+    </div>
+
+    <dl class="dl-horizontal">
+        @{
+            var data = ViewBag.Message;
+        }
+        <dt>
+            Your Total Interest is:
+        </dt>
+        <dd>
+
+            @data.Interest
+        </dd>
+        <dt>
+            Total Amount Due:
+        </dt>
+        <dd>
+
+            @data.Total
+        </dd>
+    </dl>
+    <div>
+        <a asp-action="Index">Back to List</a>
+    </div>
+
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }
